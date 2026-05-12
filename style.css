@@ -395,7 +395,6 @@ body {
     gap: 25px;
 }
 
-
 /* Responsividade */
 @media (max-width: 768px) {
     .main-content {

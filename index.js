@@ -411,55 +411,15 @@ function mostrarNotificacao() {
 document.addEventListener('DOMContentLoaded', function() {
     renderizarProdutos();
     inicializarMapa();
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderizarProdutos();
+    inicializarMapa();
     
-    // ==========================================
-    // POP-UP DE ATENDIMENTO
-    // ==========================================
-    
-    // Abrir pop-up ao clicar em "Central de Ajuda"
-    document.getElementById('linkAtendimento').addEventListener('click', function(e) {
-        e.preventDefault();
-        document.getElementById('popupAtendimento').classList.add('active');
-        document.body.style.overflow = 'hidden'; // Bloqueia rolagem do fundo
-    });
-
-    // Fechar pop-up
-    document.getElementById('fecharPopup').addEventListener('click', fecharPopup);
-
-    // Fechar ao clicar fora do pop-up
-    document.getElementById('popupAtendimento').addEventListener('click', function(e) {
-        if (e.target === this) {
-            fecharPopup();
-        }
-    });
-
-    // Fechar com tecla ESC
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            fecharPopup();
-        }
-    });
-
-    // Envio do formulário
-    document.getElementById('formAtendimento').addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Coleta os dados do formulário
-        const formData = {
-            nome: document.getElementById('nome').value,
-            email: document.getElementById('email').value,
-            telefone: document.getElementById('telefone').value,
-            assunto: document.getElementById('assunto').value,
-            mensagem: document.getElementById('mensagem').value
-        };
-        
-        // Validação simples
-        if (!formData.nome || !formData.email || !formData.assunto || !formData.mensagem) {
-            alert('Por favor, preencha todos os campos obrigatórios (*)');
-            return;
-        }
-        
-        // Envia o formulário usando FormSubmit (serviço gratuito)
-        enviarParaEmail(formData);
-    });
+    // Configura o clique no link de atendimento
+    const linkAtendimento = document.getElementById('linkAtendimento');
+    if (linkAtendimento) {
+        // O evento já foi configurado acima
+    }
+})
 });

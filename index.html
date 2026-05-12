@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Companhia Vazquez - Supermercado BH | Funcionários</title>
+    <!-- Leaflet CSS para o mapa -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="contato">
+            <i class="fas fa-phone-alt"></i> (31) 99999-8888
+            <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="localizacao">
+            <i class="fas fa-map-marker-alt"></i> R. Bernardo Guimarães, 1311 - Funcionários, BH
+        </div>
+    </div>
+
+    <!-- Header Principal -->
+    <header class="main-header">
+        <div class="header-grid">
+            <div class="logo-area">
+                <i class="fas fa-shopping-basket logo-icon"></i>
+                <div class="logo-texto">Companhia <span>Vazquez</span></div>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar produtos, marcas...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="user-actions">
+                <a href="#" class="icon-link"><i class="far fa-user"></i> Entrar</a>
+                <a href="#" class="icon-link"><i class="far fa-heart"></i> Favoritos</a>
+                <a href="#" class="icon-link" id="cartIcon">
+                    <i class="fas fa-shopping-cart"></i> Carrinho
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegação de Categorias -->
+    <nav class="nav-categorias">
+        <ul>
+            <li><a href="#" class="active" data-categoria="todos">Todos</a></li>
+            <li><a href="#" data-categoria="frutas">Frutas & Verduras</a></li>
+            <li><a href="#" data-categoria="carnes">Carnes & Aves</a></li>
+            <li><a href="#" data-categoria="laticinios">Laticínios</a></li>
+            <li><a href="#" data-categoria="bebidas">Bebidas</a></li>
+            <li><a href="#" data-categoria="mercearia">Mercearia</a></li>
+            <li><a href="#" data-categoria="limpeza">Limpeza</a></li>
+            <li><a href="#" data-categoria="padaria">Padaria</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <div class="main-content">
+        <!-- Sidebar com Filtros -->
+        <aside class="sidebar-filtros">
+            <h3><i class="fas fa-sliders-h"></i> Filtros</h3>
+            <div class="filtro-grupo">
+                <h4>Preço</h4>
+                <label><input type="radio" name="preco" value="todos" checked> Todos</label>
+                <label><input type="radio" name="preco" value="ate10"> Até R$ 10</label>
+                <label><input type="radio" name="preco" value="10a30"> R$ 10 a R$ 30</label>
+                <label><input type="radio" name="preco" value="acima30"> Acima de R$ 30</label>
+            </div>
+            <div class="filtro-grupo">
+                <h4>Promoções</h4>
+                <label><input type="checkbox" id="apenasPromocoes"> Apenas ofertas</label>
+            </div>
+            <div class="filtro-grupo">
+                <h4>Dieta Especial</h4>
+                <label><input type="checkbox" name="dieta" value="semGluten"> Sem Glúten</label>
+                <label><input type="checkbox" name="dieta" value="semLactose"> Sem Lactose</label>
+                <label><input type="checkbox" name="dieta" value="organico"> Orgânico</label>
+            </div>
+            <button class="btn-filtrar" id="aplicarFiltros">Aplicar Filtros</button>
+            <button class="btn-limpar" id="limparFiltros">Limpar Tudo</button>
+        </aside>
+
+        <!-- Área de Produtos -->
+        <section class="produtos-area">
+            <!-- Banner Promocional -->
+            <div class="promo-banner">
+                <div>
+                    <h2>🔥 Ofertas da Semana</h2>
+                    <p>Até 40% OFF em itens selecionados</p>
+                </div>
+                <div class="cupom">CUPOM: VAZQUEZ10</div>
+            </div>
+
+            <h2 style="margin-bottom: 20px; display: flex; align-items: center; gap: 10px;">
+                <i class="fas fa-tags" style="color: var(--amarelo);"></i> 
+                <span id="tituloSecao">Todos os Produtos</span>
+            </h2>
+            <!-- Grid de Produtos -->
+            <div class="produtos-grid" id="produtosContainer">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </section>
+    </div>
+
+    <!-- Seção Mapa -->
+    <section class="mapa-section">
+        <div class="mapa-container">
+            <div class="mapa-header">
+                <i class="fas fa-map-marked-alt" style="color: var(--verde-principal);"></i> 
+                Nossa Loja - Funcionários
+            </div>
+            <div id="meu-mapa"></div>
+            <div class="endereco-detalhe">
+                <i class="fas fa-store"></i> 
+                <strong>Companhia Vazquez</strong> — R. Bernardo Guimarães, 1311 - Funcionários, Belo Horizonte - MG, 30140-083
+                <br><small>🕒 Seg a Sáb: 7h-22h | Dom: 8h-20h</small>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>Companhia Vazquez</h3>
+                <p>Qualidade e economia para sua família desde 1995.</p>
+                <p>📞 (31) 99999-8888</p>
+            </div>
+            <div>
+                <h4>Institucional</h4>
+                <p>Sobre nós</p>
+                <p>Trabalhe conosco</p>
+                <p>Política de privacidade</p>
+            </div>
+            <div>
+                <h4>Atendimento</h4>
+                <p>Central de Ajuda</p>
+                <p>Troca e Devoluções</p>
+                <p>Entregas</p>
+            </div>
+            <div>
+                <h4>Redes Sociais</h4>
+                <p><i class="fab fa-instagram"></i> @companhiavazquez</p>
+                <p><i class="fab fa-facebook"></i> /companhiavazquez</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>

@@ -412,9 +412,4 @@ document.addEventListener('DOMContentLoaded', function() {
     renderizarProdutos();
     inicializarMapa();
     
-    // Configura o clique no link de atendimento
-    const linkAtendimento = document.getElementById('linkAtendimento');
-    if (linkAtendimento) {
-        // O evento já foi configurado acima
-    }
 });

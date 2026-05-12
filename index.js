@@ -11,7 +11,7 @@ const produtos = [
     { id: 7, nome: "Iogurte Natural 1L", categoria: "laticinios", preco: 9.99, precoAntigo: null, promocao: false, imagem: "https://images.unsplash.com/photo-1488477181946-6428a0291777?w=400&h=300&fit=crop", dieta: ["semLactose"] },
     { id: 8, nome: "Cerveja Pilsen 350ml", categoria: "bebidas", preco: 4.49, precoAntigo: 5.99, promocao: true, imagem: "https://images.unsplash.com/photo-1566633806327-68e152aaf26d?w=400&h=300&fit=crop", dieta: [] },
     { id: 9, nome: "Arroz Tipo 1 5kg", categoria: "mercearia", preco: 22.90, precoAntigo: null, promocao: false, imagem: "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=300&fit=crop", dieta: ["semGluten"] },
-    { id: 10, nome: "Detergente Líquido 500ml", categoria: "limpeza", preco: 2.99, precoAntigo: 4.50, promocao: true, imagem: "https://images.unsplash.com/photo-1624727828489-a1e03b79bba2?w=400&h=300&fit=crop", dieta: [] },
+    { id: 10, nome: "Detergente Líquido 500ml", categoria: "limpeza", preco: 2.99, precoAntigo: 4.50, promocao: true, imagem: "https://plus.unsplash.com/premium_photo-1664372899154-67fd05752596?q=80&w=988&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", dieta: [] },
     { id: 11, nome: "Pão Francês 10un", categoria: "padaria", preco: 8.90, precoAntigo: null, promocao: false, imagem: "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?w=400&h=300&fit=crop", dieta: [] },
     { id: 12, nome: "Leite Integral 1L", categoria: "laticinios", preco: 5.49, precoAntigo: 6.99, promocao: true, imagem: "https://images.unsplash.com/photo-1563636619-e9143da7973b?w=400&h=300&fit=crop", dieta: [] },
 ];

@@ -1,6 +1,14 @@
 // ==========================================
-// DADOS DOS PRODUTOS (catálogo simulado)
+// DADOS DOS PRODUTOS (catálogo)
 // ==========================================
+
+// Como adicionar mais produtos:
+// 1. Copie e cole um objeto do produto abaixo (entre chaves { ... }).
+// 2. Altere os valores para o novo produto (id, nome, categoria, preço, etc.).
+// 3. Certifique-se de que o id seja único e sequencial.
+// 4. Adicione a nova entrada ao array 'produtos'.
+
+
 const produtos = [
     { id: 1, nome: "Banana Prata kg", categoria: "frutas", preco: 5.99, precoAntigo: 7.99, promocao: true, imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop", dieta: [] },
     { id: 2, nome: "Maçã Gala kg", categoria: "frutas", preco: 8.90, precoAntigo: null, promocao: false, imagem: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop", dieta: ["organico"] },
@@ -24,6 +32,25 @@ let carrinhoContador = 0;
 // ==========================================
 // RENDERIZAR PRODUTOS NA TELA
 // ==========================================
+
+// Renderiza os produtos com base na categoria selecionada e nos filtros aplicados, 
+// Fazer uma alteração no código para que os produtos sejam filtrados corretamente de acordo com os critérios selecionados pelo usuário.
+// Exemplo: Se o usuário selecionar a categoria "frutas" e aplicar um filtro de preço "até R$ 10", 
+// apenas os produtos que são frutas e custam até R$ 10 devem ser exibidos.
+
+// Como adicionar uma categoria nos itens vendidos:
+// 1. Adicione a nova categoria ao array de produtos, definindo o campo "categoria" com o nome da nova categoria.
+// 2. Certifique-se de que a nova categoria seja única e não conflite com as categorias existentes.
+// 3. Atualize a interface de categorias (HTML) para incluir um link ou botão para a nova categoria, 
+//    garantindo que o atributo data-categoria corresponda ao valor definido no campo "categoria" dos produtos.
+
+// O que é esse p. alguma coisa? O "p" é uma variável de iteração usada no método filter para representar cada produto individualmente durante o processo de filtragem. 
+// Por exemplo, no código:
+// filtrados = filtrados.filter(p => p.categoria === categoriaAtual);
+// O "p" representa cada produto do array "filtrados" enquanto o método filter percorre a lista. 
+// A expressão p.categoria === categoriaAtual verifica se a categoria do produto atual (representado por "p") é igual à categoria selecionada pelo usuário (categoriaAtual). 
+// Se for igual, o produto é mantido na lista filtrada; caso contrário, ele é excluído.
+
 function filtrarProdutos() {
     let filtrados = produtos;
 
@@ -55,6 +82,14 @@ function filtrarProdutos() {
 
     return filtrados;
 }
+// A categoria "todos" é definida como padrão para exibir todos os produtos sem filtragem por categoria.
+// Isso acontece nessa parte do código:
+// Filtro de categoria
+//if (categoriaAtual !== 'todos') {
+//   filtrados = filtrados.filter(p => p.categoria === categoriaAtual);
+// }
+// Se a categoria atual for "todos", o filtro de categoria é ignorado e todos os produtos são mantidos na lista filtrada. 
+// Caso contrário, apenas os produtos que correspondem à categoria selecionada são mantidos.
 
 function renderizarProdutos() {
     const container = document.getElementById('produtosContainer');
@@ -90,6 +125,11 @@ function renderizarProdutos() {
         </div>
     `).join('');
 }
+// O innerHTML é uma propriedade do DOM que permite definir ou obter o conteúdo HTML de um elemento.
+// No código acima, o innerHTML é usado para atualizar o conteúdo do container onde os produtos são exibidos. 
+// Ele recebe uma string HTML gerada dinamicamente a partir do array de produtos filtrados, criando um card para cada produto que corresponde aos critérios de filtragem selecionados pelo usuário.
+// A função map é um método de array em JavaScript que cria um novo array com os resultados da chamada de uma função para cada elemento do array original.
+// No código acima, o map é usado para iterar sobre o array de produtos filtrados e gerar uma string HTML para cada produto, que é então unida em uma única string usando join('') para ser inserida no innerHTML do container.
 
 function adicionarAoCarrinho(nomeProduto) {
     carrinhoContador++;
@@ -108,6 +148,13 @@ function adicionarAoCarrinho(nomeProduto) {
 // ==========================================
 // EVENTOS DE CATEGORIA
 // ==========================================
+
+// O que document.querySelectorAll faz? O método document.querySelectorAll é uma função do DOM (Document Object Model)
+// em JavaScript que retorna uma NodeList de todos os elementos do documento que correspondem a um seletor CSS especificado.
+// No código abaixo, document.querySelectorAll('.nav-categorias a') seleciona todos os elementos <a> que estão dentro de um elemento com a classe .nav-categorias.
+// O método forEach é então usado para adicionar um ouvinte de evento de clique a cada um desses links, permitindo que o usuário selecione uma categoria e filtre os produtos exibidos na página com base nessa seleção.
+// Na pratica, isso significa que quando um usuário clica em um link de categoria, a função associada ao evento de clique é executada, atualizando a categoria atual e re-renderizando os produtos para mostrar apenas aqueles que pertencem à categoria selecionada.
+
 document.querySelectorAll('.nav-categorias a').forEach(link => {
     link.addEventListener('click', function(e) {
         e.preventDefault();
@@ -137,6 +184,12 @@ document.getElementById('aplicarFiltros').addEventListener('click', function() {
 
     renderizarProdutos();
 });
+
+// Como aplicar um filtro de preço? Para aplicar um filtro de preço, o código utiliza inputs do tipo radio para permitir que o usuário selecione uma faixa de preço (por exemplo, "até R$ 10", "R$ 10 a R$ 30", "acima de R$ 30").
+// Quando o usuário clica no botão "Aplicar Filtros", um evento é acionado que coleta os valores selecionados para o filtro de preço, bem como outros filtros (como promoções e dietas).
+// O código então atualiza a variável global filtrosAplicados com as opções selecionadas e chama a função renderizarProdutos() para atualizar a exibição dos produtos com base nos critérios de filtragem aplicados pelo usuário.
+// Na pratica, a variavel global filtrosAplicados é um objeto que armazena as opções de filtragem selecionadas pelo usuário, incluindo a faixa de preço escolhida, 
+// se apenas promoções devem ser exibidas e quais dietas especiais foram selecionadas. 
 
 document.getElementById('limparFiltros').addEventListener('click', function() {
     document.querySelector('input[name="preco"][value="todos"]').checked = true;

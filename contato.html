@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Companhia Vazquez</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilos extras específicos para o formulário */
+        .contato-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: var(--branco);
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+            padding: 30px;
+        }
+        .contato-container h1 {
+            color: var(--verde-principal);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .contato-container p.subtitle {
+            color: var(--texto-medio);
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--borda);
+            padding-bottom: 15px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--texto-escuro);
+        }
+        .form-group input, 
+        .form-group select, 
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--borda);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: 0.2s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--verde-claro);
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+        }
+        .btn-enviar {
+            background: var(--verde-principal);
+            color: white;
+            border: none;
+            padding: 14px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        .btn-enviar:hover {
+            background: #145214;
+        }
+        .info-contato {
+            margin-top: 30px;
+            background: #f9f9f9;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: space-between;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--texto-medio);
+        }
+        .info-item i {
+            font-size: 24px;
+            color: var(--verde-principal);
+        }
+        @media (max-width: 600px) {
+            .contato-container {
+                padding: 20px;
+                margin: 20px;
+            }
+            .info-contato {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar igual ao site principal (opcional, para manter identidade) -->
+    <div class="top-bar">
+        <div class="contato">
+            <i class="fas fa-phone-alt"></i> (31) 99999-8888
+            <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        </div>
+        <div class="localizacao">
+            <i class="fas fa-map-marker-alt"></i> R. Bernardo Guimarães, 1311 - Funcionários, BH
+        </div>
+    </div>
+
+    <!-- Header com logo (igual ao index) -->
+    <header class="main-header">
+        <div class="header-grid">
+            <div class="logo-area">
+                <i class="fas fa-shopping-basket logo-icon"></i>
+                <div class="logo-texto">Companhia <span>Vazquez</span></div>
+            </div>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar produtos...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="user-actions">
+                <a href="#" class="icon-link"><i class="far fa-user"></i> Entrar</a>
+                <a href="#" class="icon-link"><i class="far fa-heart"></i> Favoritos</a>
+                <a href="index.html" class="icon-link"><i class="fas fa-store"></i> Voltar à Loja</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal: formulário de contato -->
+    <div class="contato-container">
+        <h1><i class="fas fa-envelope-open-text"></i> Fale Conosco</h1>
+        <p class="subtitle">Envie sua mensagem, dúvida, sugestão ou reclamação. Responderemos em até 24h úteis.</p>
+
+        <form id="formContato" action="#" method="post">
+            <div class="form-group">
+                <label for="nome"><i class="fas fa-user"></i> Nome completo *</label>
+                <input type="text" id="nome" name="nome" required placeholder="Seu nome">
+            </div>
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> E-mail *</label>
+                <input type="email" id="email" name="email" required placeholder="seuemail@exemplo.com">
+            </div>
+            <div class="form-group">
+                <label for="telefone"><i class="fas fa-phone-alt"></i> Telefone (opcional)</label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(31) 99999-9999">
+            </div>
+            <div class="form-group">
+                <label for="assunto"><i class="fas fa-tag"></i> Assunto *</label>
+                <select id="assunto" name="assunto" required>
+                    <option value="">Selecione...</option>
+                    <option value="duvida">Dúvida sobre produtos</option>
+                    <option value="reclamacao">Reclamação</option>
+                    <option value="sugestao">Sugestão</option>
+                    <option value="parceria">Parceria/Fornecedor</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="mensagem"><i class="fas fa-comment-dots"></i> Mensagem *</label>
+                <textarea id="mensagem" name="mensagem" rows="5" required placeholder="Digite sua mensagem aqui..."></textarea>
+            </div>
+            <button type="submit" class="btn-enviar">Enviar mensagem <i class="fas fa-paper-plane"></i></button>
+        </form>
+
+        <div class="info-contato">
+            <div class="info-item"><i class="fas fa-phone-alt"></i> (31) 99999-8888</div>
+            <div class="info-item"><i class="fab fa-whatsapp"></i> (31) 98888-7777</div>
+            <div class="info-item"><i class="fas fa-clock"></i> Seg–Sáb: 7h–22h / Dom: 8h–20h</div>
+        </div>
+    </div>
+
+    <!-- Footer simplificado (igual ao index) -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div>
+                <h3>Companhia Vazquez</h3>
+                <p>Qualidade e economia desde 1995.</p>
+                <p>📞 (31) 99999-8888</p>
+            </div>
+            <div>
+                <h4>Institucional</h4>
+                <p>Sobre nós</p>
+                <p>Trabalhe conosco</p>
+                <p>Política de privacidade</p>
+            </div>
+            <div>
+                <h4>Atendimento</h4>
+                <p><a href="contato.html" style="color: white; text-decoration: none;">Fale Conosco</a></p>
+                <p>Troca e Devoluções</p>
+                <p>Entregas</p>
+            </div>
+            <div>
+                <h4>Redes Sociais</h4>
+                <p><i class="fab fa-instagram"></i> @companhiavazquez</p>
+                <p><i class="fab fa-facebook"></i> /companhiavazquez</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script simples para validação e exibição (sem envio real, apenas alerta) -->
+    <script>
+        document.getElementById('formContato').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const assunto = document.getElementById('assunto').value;
+            const mensagem = document.getElementById('mensagem').value.trim();
+
+            if (!nome || !email || !assunto || !mensagem) {
+                alert('Por favor, preencha todos os campos obrigatórios (*).');
+                return;
+            }
+            if (!email.includes('@') || !email.includes('.')) {
+                alert('E-mail inválido. Use um formato como nome@exemplo.com');
+                return;
+            }
+            // Simulação de envio
+            alert(`Obrigado, ${nome}! Sua mensagem foi enviada com sucesso.\nAssunto: ${assunto}\nResponderemos em breve.`);
+            this.reset(); // limpa o formulário
+        });
+    </script>
+</body>
+</html>

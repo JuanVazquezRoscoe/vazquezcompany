@@ -415,19 +415,20 @@ body {
     }
 
 /* ========== SEÇÃO DE VÍDEO YOUTUBE ========== */
+/* ========== SEÇÃO DE VÍDEO YOUTUBE (CORRIGIDA) ========== */
 .video-section {
     max-width: 1300px;
-    margin: 30px auto;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
 .video-container {
     background: var(--branco);
-    border-radius: 12px;
+    border-radius: 16px;
     box-shadow: var(--sombra);
-    padding: 25px 20px 20px 20px;
+    padding: 28px 24px 24px;
     text-align: center;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s;
 }
 
 .video-header {
@@ -435,24 +436,26 @@ body {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    margin-bottom: 20px;
+    margin-bottom: 24px;
     flex-wrap: wrap;
 }
 
 .video-header h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     color: var(--verde-principal);
     font-weight: 700;
+    margin: 0;
 }
 
 .video-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px;
+    max-width: 880px;
     margin: 0 auto;
-    border-radius: 12px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    background: #000;
 }
 
 .video-wrapper iframe {
@@ -463,12 +466,26 @@ body {
 }
 
 .video-legenda {
-    margin-top: 16px;
-    font-size: 14px;
+    margin-top: 20px;
+    font-size: 0.95rem;
     color: var(--texto-medio);
-    max-width: 700px;
+    max-width: 720px;
     margin-left: auto;
     margin-right: auto;
+    line-height: 1.4;
+}
+
+/* Responsivo para celular */
+@media (max-width: 768px) {
+    .video-header h3 {
+        font-size: 1.3rem;
+    }
+    .video-container {
+        padding: 18px 16px;
+    }
+    .video-wrapper {
+        border-radius: 12px;
+    }
 }
 
 /* Responsividade para o vídeo */

@@ -413,4 +413,71 @@ body {
     .produtos-grid {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
+
+/* ========== SEÇÃO DE VÍDEO YOUTUBE ========== */
+.video-section {
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.video-container {
+    background: var(--branco);
+    border-radius: 12px;
+    box-shadow: var(--sombra);
+    padding: 25px 20px 20px 20px;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.video-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.video-header h3 {
+    font-size: 1.5rem;
+    color: var(--verde-principal);
+    font-weight: 700;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-wrapper iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: none;
+    display: block;
+}
+
+.video-legenda {
+    margin-top: 16px;
+    font-size: 14px;
+    color: var(--texto-medio);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsividade para o vídeo */
+@media (max-width: 768px) {
+    .video-header h3 {
+        font-size: 1.2rem;
+    }
+    .video-container {
+        padding: 15px;
+    }
+}
 }

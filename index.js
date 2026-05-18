@@ -10,7 +10,7 @@
 
 
 const produtos = [
-    { id: 1, nome: "Banana Prata kg", categoria: "frutas", preco: 100.99, precoAntigo: 7.99, promocao: true, imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop", dieta: [] },
+    { id: 1, nome: "Banana Prata kg", categoria: "frutas", preco: 5.99, precoAntigo: 7.99, promocao: true, imagem: "https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=400&h=300&fit=crop", dieta: [] },
     { id: 2, nome: "Maçã Gala kg", categoria: "frutas", preco: 8.90, precoAntigo: null, promocao: false, imagem: "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?w=400&h=300&fit=crop", dieta: ["organico"] },
     { id: 3, nome: "Alface Crespa un.", categoria: "frutas", preco: 3.49, precoAntigo: null, promocao: false, imagem: "https://images.unsplash.com/photo-1622206151226-18ca2c9ab4a1?w=400&h=300&fit=crop", dieta: ["organico"] },
     { id: 4, nome: "Picanha Bovina kg", categoria: "carnes", preco: 69.90, precoAntigo: 89.90, promocao: true, imagem: "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?w=400&h=300&fit=crop", dieta: [] },
